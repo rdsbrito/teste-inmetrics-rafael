@@ -10,8 +10,13 @@ Given("que o usuário acessa a página de produtos", () => {
 
 When("pesquisar pelo produto {string}", (produto) => {
 
+    cy.get("#search_product").type(produto);
+    cy.get("#submit_search").click();
+
 });
 
 Then("o produto deve ser exibido na lista de resultados", () => {
+
+    cy.get(".features_items").should("be.visible");
 
 });
